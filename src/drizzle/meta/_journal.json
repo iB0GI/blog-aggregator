@@ -22,6 +22,13 @@
       "when": 1782396532477,
       "tag": "0002_magical_nehzno",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1782400773316,
+      "tag": "0003_serious_black_queen",
+      "breakpoints": true
     }
   ]
 }
