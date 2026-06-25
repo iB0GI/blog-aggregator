@@ -1,10 +1,10 @@
-import { readConfig, setUser } from "./config";
+import { readConfig, setUser } from "../config";
 import {
   createUser,
   getUserByName,
-  deleteUsers,
   getAllUsers,
-} from "./lib/db/queries/users";
+} from "../lib/db/queries/users";
+import { fetchFeed } from "../lib/rss";
 
 export async function handlerLogin(_cmdName: string, ...args: string[]) {
   if (args.length !== 1) {
@@ -39,11 +39,6 @@ export async function handlerRegister(_cmdName: string, ...args: string[]) {
   }
   setUser(userName);
   console.log(`User ${userName} has been created`);
-}
-
-export async function handlerReset(_cmdName: string) {
-  await deleteUsers();
-  console.log("All users have been deleted");
 }
 
 export async function handlerListUsers(_cmdName: string) {
