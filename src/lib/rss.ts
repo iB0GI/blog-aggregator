@@ -23,8 +23,7 @@ export async function fetchFeed(feedUrl: string) {
   }
   const xml = await result.text();
 
-  const options = { processEntities: false };
-  const xmlParser = new XMLParser(options);
+  const xmlParser = new XMLParser();
   const json = xmlParser.parse(xml);
 
   if (!json?.rss?.channel) {
