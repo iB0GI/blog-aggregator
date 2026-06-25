@@ -5,7 +5,11 @@ import {
   type CommandsRegistry,
 } from "./commands/commands";
 import { handlerAddFeed, handlerListFeeds } from "./commands/feeds";
-import { handlerFollowFeed, handlerFollowing } from "./commands/feeds-follow";
+import {
+  handlerFollowFeed,
+  handlerFollowing,
+  handlerUnfollowFeed,
+} from "./commands/feeds-follow";
 import { handlerReset } from "./commands/reset";
 import {
   handlerListUsers,
@@ -32,6 +36,11 @@ async function main() {
   registerCommand(registry, "feeds", handlerListFeeds);
   registerCommand(registry, "follow", middlewareLoggedIn(handlerFollowFeed));
   registerCommand(registry, "following", middlewareLoggedIn(handlerFollowing));
+  registerCommand(
+    registry,
+    "unfollow",
+    middlewareLoggedIn(handlerUnfollowFeed),
+  );
 
   try {
     await runCommand(registry, cmdName, ...userArguments);

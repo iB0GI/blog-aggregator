@@ -1,5 +1,6 @@
 import {
   createFeedFollow,
+  deleteFeedFollow,
   getFeedFollowsForUser,
 } from "../lib/db/queries/feed-follows";
 import { getFeedByUrl } from "../lib/db/queries/feeds";
@@ -44,4 +45,27 @@ export async function handlerFollowing(_cmdName: string, user: User) {
 export function printFeedFollow(username: string, feedname: string) {
   console.log(`* User:          ${username}`);
   console.log(`* Feed:          ${feedname}`);
+}
+
+export async function handlerUnfollowFeed(
+  _cmdName: string,
+  user: User,
+  ...args: string[]
+) {
+  if (args.length !== 1) {
+    throw new Error("The follow handler expects a single argument, the url");
+  }
+  const url = args[0];
+  const feed = await getFeedByUrl(url);
+
+  if (!feed) {
+    throw new Error(`Feed "${url}" does not exist in the database.`);
+  }
+
+  const feedFollow = await deleteFeedFollow(user.id, feed.id);
+  if (!feedFollow) {
+    throw new Error(`Failed to unfollow feed`);
+  }
+
+  console.log(`Feed ${feed.name} has been unfollowed`);
 }
