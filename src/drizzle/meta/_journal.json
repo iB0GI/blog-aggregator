@@ -15,6 +15,13 @@
       "when": 1782383357386,
       "tag": "0001_funny_leo",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1782396532477,
+      "tag": "0002_magical_nehzno",
+      "breakpoints": true
     }
   ]
 }
