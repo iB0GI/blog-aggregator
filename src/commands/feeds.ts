@@ -5,20 +5,16 @@ import { getUserById, getUserByName } from "../lib/db/queries/users";
 import { Feed, User } from "../lib/db/schema";
 import { printFeedFollow } from "./feeds-follow";
 
-export async function handlerAddFeed(_cmdName: string, ...args: string[]) {
+export async function handlerAddFeed(
+  _cmdName: string,
+  user: User,
+  ...args: string[]
+) {
   if (args.length !== 2) {
     throw new Error("The add handler expects a 2 arguments, the name and url");
   }
 
   const [name, url] = args;
-  const currentUser = readConfig().currentUserName;
-  const user = await getUserByName(currentUser as string);
-
-  if (!user) {
-    throw new Error(
-      `Current configuration user "${currentUser}" does not exist in the database.`,
-    );
-  }
 
   const feed = await createFeed(url, name, user.id);
   if (!feed) {
