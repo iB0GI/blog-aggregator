@@ -4,7 +4,6 @@ import {
   getFeedFollowsForUser,
 } from "../lib/db/queries/feed-follows";
 import { getFeedByUrl } from "../lib/db/queries/feeds";
-import { getUserByName } from "../lib/db/queries/users";
 import { User } from "../lib/db/schema";
 
 export async function handlerFollowFeed(

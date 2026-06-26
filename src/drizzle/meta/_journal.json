@@ -29,6 +29,20 @@
       "when": 1782400773316,
       "tag": "0003_serious_black_queen",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1782468726359,
+      "tag": "0004_kind_guardian",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1782469040908,
+      "tag": "0005_watery_scorpion",
+      "breakpoints": true
     }
   ]
 }

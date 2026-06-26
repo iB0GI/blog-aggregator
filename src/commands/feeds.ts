@@ -1,7 +1,6 @@
-import { readConfig } from "../config";
 import { createFeedFollow } from "../lib/db/queries/feed-follows";
 import { createFeed, getAllFeeds } from "../lib/db/queries/feeds";
-import { getUserById, getUserByName } from "../lib/db/queries/users";
+import { getUserById } from "../lib/db/queries/users";
 import { Feed, User } from "../lib/db/schema";
 import { printFeedFollow } from "./feeds-follow";
 
