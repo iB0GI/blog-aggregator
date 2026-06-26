@@ -23,7 +23,7 @@ The database relies on 4 relational tables structured with strong data-integrity
 | login       | `<username>`            | Sets the config currentUserName.                 |
 | users       | None                    | Lists all users.                 |
 | feeds       | None                    | Prints every tracked RSS feed along with its creating user metadata. |
-| agg         | None                    | Runs the background worker engine to continuously loop and scrape oldest/unfetched feeds. |
+| agg         | `<time_between_reqs>`   | Runs the background worker engine to continuously loop and scrape oldest/unfetched feeds. Arg <time_between_reqs> in ms, s, m, h e.g: 1ms|
 | reset       | None                    | Clears users table. |
 | addfeed     | `<name> <url>`          | Adds a new RSS feed and follows added to logged-in user. |
 | follow      | `<url>`                 | Follows an existing feed for the logged-in user.                  |
